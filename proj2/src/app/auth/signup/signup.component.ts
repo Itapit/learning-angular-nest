@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { AuthField } from '../auth-form/auth-form.component';
 import { Validators } from '@angular/forms';
+import { InputType } from '../../shared/generic-form/input-type.enum';
+import { FormFieldConfig } from '../../shared/generic-form/form-field-config';
+import { FieldType } from '../../shared/generic-form/field-type.enum';
 
 @Component({
   selector: 'app-signup',
@@ -9,13 +11,34 @@ import { Validators } from '@angular/forms';
   styleUrl: './signup.component.css'
 })
 export class SignupComponent {
-  signupFields: AuthField[] = [
-    { name: 'username', label:'Username', type: 'username', validators:[Validators.required, Validators.minLength(6)]},
-    { name: 'email',   label: 'Email',    type: 'email',    validators: [Validators.required, Validators.email] },
-    { name: 'password',label: 'Password', type: 'password', validators: [Validators.required] }
+  signupConfig: FormFieldConfig[] = [
+    {
+      type: FieldType.Input,
+      name: 'username',
+      label: 'Username',
+      inputType: InputType.Text,
+      validators: [ Validators.required, Validators.minLength(5) ],
+      errorMessage: 'Username is required'
+    },
+    {
+      type: FieldType.Input,
+      name: 'email',
+      label: 'Email',
+      inputType: InputType.Email,
+      validators: [ Validators.required, Validators.email ],
+      errorMessage: 'Please enter a valid email'
+    },
+    {
+      type: FieldType.Input,
+      name: 'password',
+      label: 'Password',
+      inputType: InputType.Text,
+      validators: [ Validators.required ],
+      errorMessage: 'Password is required'
+    }
   ];
 
-  onSignUp(data: any) {
+  onSignup(data: any) {
     console.log(data)
   }
 }

@@ -1,0 +1,12 @@
+<ng-container *ngFor="let f of config">
+  <ng-container [ngSwitch]="f.type">
+    <app-input-field
+      *ngSwitchCase="'input'"
+      [config]="f"
+    ></app-input-field>
+  </ng-container>
+  <div *ngIf="group.get(f.name)?.invalid && group.get(f.name)?.touched"
+       class="error">
+    {{ f.errorMessage || (f.label + ' is invalid') }}
+  </div>
+</ng-container>

@@ -1,7 +1,4 @@
-<p>signup works!</p>
-<auth-form
-  title="Sign up"
-  [fields]="signupFields"
-  buttonLabel="Sign up"
-  (submitForm)="onSignUp($event)">
-</auth-form>
+<app-generic-form
+  [config]="signupConfig"
+  (submitted)="onSignup($event)">
+</app-generic-form>

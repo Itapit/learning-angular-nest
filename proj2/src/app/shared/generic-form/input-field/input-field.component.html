@@ -1,0 +1,7 @@
+<label [for]="config.name">{{ config.label }}</label>
+    <input
+      [id]="config.name"
+      [type]="config.inputType || 'text'"
+      [formControlName]="config.name"
+      [placeholder]="config.placeholder || ''"
+    />
