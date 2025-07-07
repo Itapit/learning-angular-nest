@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { FormFieldConfig } from '../interfaces/form-field-config';
+import { FieldType } from '../enums/field-type.enum';
 
 @Component({
   selector: 'app-field-list',
@@ -10,5 +10,5 @@ import { FormFieldConfig } from '../interfaces/form-field-config';
 })
 export class FieldListComponent {
   @Input() config: FormFieldConfig[] = [];
-  @Input() group!: FormGroup;
+  readonly FieldType = FieldType;
 }

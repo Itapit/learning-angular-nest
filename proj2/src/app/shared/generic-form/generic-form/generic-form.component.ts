@@ -1,27 +1,22 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { ControlContainer, FormBuilder, FormGroup, FormGroupDirective } from '@angular/forms';
 import { FormFieldConfig } from '../interfaces/form-field-config';
 
 @Component({
   selector: 'app-generic-form',
   standalone: false,
   templateUrl: './generic-form.component.html',
-  styleUrl: './generic-form.component.css'
+  styleUrl: './generic-form.component.css',
+  viewProviders: [{ provide: ControlContainer, useExisting: FormGroupDirective }]
 })
 export class GenericFormComponent {
-  @Input() config: FormFieldConfig[] = [];
+  @Input() fields: FormFieldConfig[] = [];
   @Output() submitted = new EventEmitter<any>();
 
   form!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
-
-  ngOnInit() {
-    const groupDef = this.config.reduce((g, f) => {
-      g[f.name] = ['', f.validators || []];
-      return g;
-    }, {} as Record<string, any[]>);
-    this.form = this.fb.group(groupDef);
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({});
   }
 
   onSubmit() {

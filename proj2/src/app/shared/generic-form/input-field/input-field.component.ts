@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Host, Input, OnInit, Optional, SkipSelf } from '@angular/core';
 import { FormFieldConfig } from '../interfaces/form-field-config';
-import { ControlContainer, FormGroupDirective } from '@angular/forms';
+import { AbstractControl, ControlContainer, FormControl, FormGroup, FormGroupDirective } from '@angular/forms';
 
 @Component({
   selector: 'app-input-field',
@@ -11,6 +11,24 @@ import { ControlContainer, FormGroupDirective } from '@angular/forms';
     { provide: ControlContainer, useExisting: FormGroupDirective }
   ]
 })
-export class InputFieldComponent {
+export class InputFieldComponent implements OnInit{
   @Input() config!: FormFieldConfig;
+  
+  constructor(
+    @Optional()
+    private container: ControlContainer
+  ) {}
+
+  ngOnInit() {
+    const parentForm = this.container.control as FormGroup;
+    const control = new FormControl(
+      "",
+      this.config.validators || []
+    );
+    parentForm.addControl(this.config.name, control);
+  }
+
+  get control(): AbstractControl {
+    return (this.container.control as FormGroup).get(this.config.name)!;
+  }
 }
