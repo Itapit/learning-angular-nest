@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FormFieldConfig } from '../form-field-config';
+import { FormFieldConfig } from '../interfaces/form-field-config';
 
 @Component({
   selector: 'app-field-list',

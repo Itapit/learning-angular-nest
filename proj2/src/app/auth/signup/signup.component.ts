@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Validators } from '@angular/forms';
-import { InputType } from '../../shared/generic-form/input-type.enum';
-import { FormFieldConfig } from '../../shared/generic-form/form-field-config';
-import { FieldType } from '../../shared/generic-form/field-type.enum';
+import { InputType } from '../../shared/generic-form/enums/input-type.enum';
+import { FormFieldConfig } from '../../shared/generic-form/interfaces/form-field-config';
+import { FieldType } from '../../shared/generic-form/enums/field-type.enum';
 
 @Component({
   selector: 'app-signup',

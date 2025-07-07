@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormFieldConfig } from '../form-field-config';
+import { FormFieldConfig } from '../interfaces/form-field-config';
 import { ControlContainer, FormGroupDirective } from '@angular/forms';
 
 @Component({
