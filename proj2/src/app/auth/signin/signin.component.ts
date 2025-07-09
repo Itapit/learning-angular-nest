@@ -30,7 +30,11 @@ signinConfig: FormFieldConfig[] = [
   }
   ];
 
-  onSignin(data: any) {
-    console.log(data)
+  formInvalidGuard(): boolean {
+    return false;
+  }
+
+  onSignin(formData: { [key: string]: any }) {
+    console.log('Received form data:', formData);
   }
 }
