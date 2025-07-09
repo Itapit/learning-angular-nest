@@ -1,3 +1,10 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <app-field-list [config]="fields"></app-field-list>
+  <div *ngFor="let field of fields">
+    <div [ngSwitch]="field.type">
+      <app-input-field
+        *ngSwitchCase="FieldType.Input"
+        [config]="field">
+      </app-input-field>
+    </div>
+  </div>
 </form>

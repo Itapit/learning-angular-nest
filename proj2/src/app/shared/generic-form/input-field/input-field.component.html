@@ -1,10 +1,9 @@
-<label [for]="config.name">{{ config.label }}</label>
-<input
-  [id]="config.name"
-  [type]="config.inputType || 'text'"
-  [formControlName]="config.name"
-  [placeholder]="config.placeholder || ''"
-/>
-<div *ngIf="control.invalid && (control.touched || control.dirty)">
-  <span *ngIf="control.hasError('required')">{{ config.errorMessage || "This field is required!"}}</span>
+<div [formGroup] = "parentFormGroup">
+  <label [for]="config.name">{{ config.label }}</label>
+  <input
+    [id]="config.name"
+    [type]="config.inputType || 'text'"
+    [formControlName]="config.name"
+    [placeholder]="config.placeholder || ''"
+  /> 
 </div>

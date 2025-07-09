@@ -1,35 +1,27 @@
-import { Component, Host, inject, Input, OnInit, Optional, SkipSelf } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { FormFieldConfig } from '../interfaces/form-field-config';
-import { AbstractControl, ControlContainer, FormControl, FormGroup, FormGroupDirective } from '@angular/forms';
+import { ControlContainer, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-input-field',
   standalone: false,
   templateUrl: './input-field.component.html',
-  styleUrl: './input-field.component.css',
-    viewProviders: [
-    { provide: ControlContainer, useExisting: FormGroupDirective }
-  ]
+  styleUrl: './input-field.component.css'
 })
 export class InputFieldComponent implements OnInit{
   @Input() config!: FormFieldConfig;
   
-  private container = inject(ControlContainer)
+  private readonly parent = inject(ControlContainer)
 
-  get containerFormGroup(){
-    return this.container.control as FormGroup
+  get parentFormGroup(){
+    return this.parent.control as FormGroup
   }
 
   ngOnInit() {
-    const parentForm = this.containerFormGroup;
     const control = new FormControl(
       "",
       this.config.validators || []
     );
-    parentForm.addControl(this.config.name, control);
-  }
-
-  get control(): AbstractControl {
-    return (this.container.control as FormGroup).get(this.config.name)!;
+    this.parentFormGroup.addControl(this.config.name, control);
   }
 }

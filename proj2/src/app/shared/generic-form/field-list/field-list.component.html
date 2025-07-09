@@ -1,8 +1,0 @@
-<ng-container *ngFor="let f of config">
-  <ng-container [ngSwitch]="f.type">
-    <app-input-field 
-      *ngSwitchCase="FieldType.Input" 
-      [config]="f">
-    </app-input-field>
-  </ng-container>
-</ng-container>
