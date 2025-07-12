@@ -15,6 +15,6 @@ import { SigninComponent } from './signin/signin.component';
     CommonModule,
     AuthRoutingModule,
     GenericFormModule
-  ]
+  ],
 })
 export class AuthModule { }

@@ -3,6 +3,8 @@ import { Validators } from '@angular/forms';
 import { InputType } from '../../shared/generic-form/enums/input-type.enum';
 import { FormFieldConfig } from '../../shared/generic-form/interfaces/form-field-config';
 import { FieldType } from '../../shared/generic-form/enums/field-type.enum';
+import { HttpClientService } from '../http-client.service';
+import { SignupDto } from '../dto/signup.dto';
 
 @Component({
   selector: 'app-signup',
@@ -11,6 +13,7 @@ import { FieldType } from '../../shared/generic-form/enums/field-type.enum';
   styleUrl: './signup.component.css'
 })
 export class SignupComponent {
+  constructor(private auth: HttpClientService) {}
   signupConfig: FormFieldConfig[] = [
     {
       type: FieldType.Input,
@@ -38,7 +41,11 @@ export class SignupComponent {
     }
   ];
 
-  onSignup(data: any) {
-    console.log(data)
+  onSignup(formData: SignupDto) {
+    console.log('Received form data:', formData);
+    this.auth.signup(formData).subscribe({
+      next: res => console.log("signup response", res),
+      error: err => console.log("signup error", err),
+    })
   }
 }
