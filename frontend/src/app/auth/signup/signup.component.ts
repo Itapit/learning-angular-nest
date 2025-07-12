@@ -13,7 +13,7 @@ import { SignupDto } from '../dto/signup.dto';
   styleUrl: './signup.component.css'
 })
 export class SignupComponent {
-  constructor(private auth: HttpClientService) {}
+  constructor(private readonly auth: HttpClientService) {}
   signupConfig: FormFieldConfig[] = [
     {
       type: FieldType.Input,
