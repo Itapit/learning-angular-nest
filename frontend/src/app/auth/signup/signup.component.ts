@@ -3,8 +3,9 @@ import { Validators } from '@angular/forms';
 import { InputType } from '../../shared/generic-form/enums/input-type.enum';
 import { FormFieldConfig } from '../../shared/generic-form/interfaces/form-field-config';
 import { FieldType } from '../../shared/generic-form/enums/field-type.enum';
-import { HttpClientService } from '../services/http-client.service';
 import { SignupDto } from '../dto/signup.dto';
+import { HttpClientService } from '../services/http-client.service';
+
 
 @Component({
   selector: 'app-signup',
