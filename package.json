@@ -7,7 +7,6 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "lint": "nx lint",
     "format": "nx format:write"
   },
   "private": true,
@@ -43,7 +42,6 @@
     "@nestjs/testing": "^11.0.1",
     "@nx/angular": "21.2.3",
     "@nx/eslint": "21.2.3",
-    "@nx/eslint-plugin": "21.2.3",
     "@nx/js": "21.2.3",
     "@nx/nest": "21.2.3",
     "@nx/node": "^21.2.3",
@@ -62,7 +60,6 @@
     "@types/supertest": "^6.0.2",
     "@typescript-eslint/utils": "^8.29.0",
     "angular-eslint": "^20.0.0",
-    "eslint": "^9.18.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.2",
     "globals": "^16.0.0",

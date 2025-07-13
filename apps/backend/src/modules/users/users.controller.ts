@@ -1,17 +1,16 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { CreateUserDto } from './dto/create-user.dto';
-import { LoginUserDto } from './dto/login-user.dto';
 import { UsersService } from './services/users.service';
+import { SigninDto, SignupDto } from '@learning-angular-nest-nx/shared';
 
 @Controller('auth')
 export class UsersController {
     constructor(private readonly userService: UsersService) {}
     @Post('signup')
-    async signup( @Body() createUserDto: CreateUserDto) {
+    async signup( @Body() createUserDto: SignupDto) {
         return this.userService.signup(createUserDto);
     }
     @Post('signin')
-    async signin(@Body() loginUserDto: LoginUserDto) {
+    async signin(@Body() loginUserDto: SigninDto) {
         return this.userService.signin(loginUserDto);
     }
 }

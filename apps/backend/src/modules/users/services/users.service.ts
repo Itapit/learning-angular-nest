@@ -1,15 +1,14 @@
+import { SigninDto, SignupDto } from '@learning-angular-nest-nx/shared';
 import { Injectable } from '@nestjs/common';
-import { CreateUserDto } from '../dto/create-user.dto';
-import { LoginUserDto } from '../dto/login-user.dto';
 
 @Injectable()
 export class UsersService {
-    async signup(dto: CreateUserDto) {
+    async signup(dto: SignupDto) {
         console.log("Hello there signup!")
         console.log(dto);
         return {message: "signup response from nest!!!"}
     }
-    async signin(dto: LoginUserDto) {
+    async signin(dto: SigninDto) {
         console.log("Hello there signin!")
         console.log(dto)
         return {message: "signin response from nest!!!"}
