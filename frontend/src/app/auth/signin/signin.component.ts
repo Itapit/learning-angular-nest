@@ -3,7 +3,7 @@ import { FormFieldConfig } from '../../shared/generic-form/interfaces/form-field
 import { FieldType } from '../../shared/generic-form/enums/field-type.enum';
 import { InputType } from '../../shared/generic-form/enums/input-type.enum';
 import { Validators } from '@angular/forms';
-import { HttpClientService } from '../http-client.service';
+import { HttpClientService } from '../services/http-client.service';
 import { SigninDto } from '../dto/signin.dto';
 
 @Component({
